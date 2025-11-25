@@ -1,442 +1,240 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
-    />
-    <title>Neon Çiçek Şovu</title>
-    <style>
-      :root {
-        --bg1: #05001a;
-        --bg2: #0b0033;
-        --neon-1: #ff0080;
-        --neon-2: #00e6ff;
-        --neon-3: #9bff00;
-        --card-bg: rgba(255, 255, 255, 0.03);
-        --glass: rgba(255, 255, 255, 0.04);
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-          Roboto, "Helvetica Neue", Arial;
-      }
-      body {
-        background: radial-gradient(
-            1200px 600px at 10% 10%,
-            rgba(255, 0, 130, 0.06),
-            transparent 10%
-          ),
-          radial-gradient(
-            900px 400px at 90% 90%,
-            rgba(0, 230, 255, 0.04),
-            transparent 10%
-          ),
-          linear-gradient(160deg, var(--bg1), var(--bg2));
-        overflow: hidden;
-        color: #fff;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>Neon Çiçek Şovu</title>
+  <style>
+    :root{
+      --bg1:#05001a;
+      --bg2:#0b0033;
+      --neon-1: #ff0080;
+      --neon-2: #00e6ff;
+      --neon-3: #9bff00;
+      --card-bg: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,0,130,0.06), transparent 10%),
+                  radial-gradient(900px 400px at 90% 90%, rgba(0,230,255,0.04), transparent 10%),
+                  linear-gradient(160deg,var(--bg1),var(--bg2));
+      overflow:hidden;
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-      /* Center card */
-      .stage {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 40px;
-      }
-      .card {
-        width: min(980px, 95%);
-        min-height: 420px;
-        border-radius: 20px;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.02),
-          rgba(255, 255, 255, 0.01)
-        );
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6),
-          0 0 30px rgba(0, 0, 0, 0.4) inset;
-        position: relative;
-        overflow: hidden;
-        padding: 48px;
-        backdrop-filter: blur(6px);
-        border: 1px solid rgba(255, 255, 255, 0.04);
-      }
+    /* Center card */
+    .stage{
+      position:relative;
+      width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:40px;
+    }
+    .card{
+      width:min(980px,95%);
+      min-height:420px;
+      border-radius:20px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 30px rgba(0,0,0,0.4) inset;
+      position:relative;overflow:hidden;padding:48px;backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.04);
+    }
 
-      h1 {
-        font-size: 36px;
-        margin: 0 0 8px 0;
-        letter-spacing: 0.6px;
-      }
-      p.lead {
-        opacity: 0.9;
-        margin: 0 0 20px 0;
-      }
+    h1{font-size:36px;margin:0 0 8px 0;letter-spacing:0.6px}
+    p.lead{opacity:0.9;margin:0 0 20px 0}
 
-      .cta {
-        display: inline-block;
-        padding: 10px 18px;
-        border-radius: 999px;
-        font-weight: 600;
-        text-decoration: none;
-        cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.02),
-          rgba(255, 255, 255, 0.01)
-        );
-      }
+    .cta{display:inline-block;padding:10px 18px;border-radius:999px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
 
-      /* Neon headline glow */
-      .neon {
-        color: var(--neon-1);
-        text-shadow: 0 0 8px rgba(0, 230, 255, 0.45),
-          0 0 20px rgba(0, 230, 255, 0.25), 0 0 40px rgba(155, 0, 255, 0.06);
-      }
+    /* Neon headline glow */
+    .neon{
+      color:var(--neon-1);
+      text-shadow: 0 0 8px rgba(0,230,255,0.45), 0 0 20px rgba(0,230,255,0.25), 0 0 40px rgba(155,0,255,0.06);
+    }
 
-      /* Flower system */
-      .garden {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-      }
-      .flower {
-        position: absolute;
-        transform-origin: center center;
-        filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.6));
-        opacity: 0.98;
-      }
+    /* Flower system */
+    .garden{position:absolute;inset:0;pointer-events:none}
+    .flower{
+      position:absolute;transform-origin:center center;filter: drop-shadow(0 6px 20px rgba(0,0,0,0.6));
+      opacity:0.98;
+    }
 
-      /* Petals (5 petals) */
-      .petal {
-        width: 60px;
-        height: 120px;
-        border-radius: 60px 60px 20px 20px/90px 90px 20px 20px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform-origin: 50% 80%;
-        background: radial-gradient(
-            circle at 40% 30%,
-            rgba(255, 255, 255, 0.45),
-            transparent 30%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.06),
-            rgba(255, 255, 255, 0.02)
-          );
-        mix-blend-mode: screen;
-        box-shadow: 0 0 30px rgba(255, 0, 128, 0.12);
-        opacity: 0.95;
-      }
-      .center {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 0 24px rgba(255, 255, 0, 0.12),
-          inset 0 0 6px rgba(255, 255, 255, 0.25);
-        background: radial-gradient(
-          circle at 30% 30%,
-          rgba(255, 255, 255, 0.9),
-          rgba(255, 200, 20, 0.95) 30%,
-          rgba(255, 120, 20, 0.9)
-        );
-      }
+    /* Petals (5 petals) */
+    .petal{
+      width:60px;height:120px;border-radius:60px 60px 20px 20px/90px 90px 20px 20px;position:absolute;left:50%;top:50%;transform-origin:50% 80%;
+      background: radial-gradient(circle at 40% 30%, rgba(255,255,255,0.45), transparent 30%), linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      mix-blend-mode: screen;
+      box-shadow: 0 0 30px rgba(255,0,128,0.12);
+      opacity:0.95;
+    }
+    .center{
+      width:22px;height:22px;border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      box-shadow:0 0 24px rgba(255,255,0,0.12), inset 0 0 6px rgba(255,255,255,0.25);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,200,20,0.95) 30%, rgba(255,120,20,0.9));
+    }
 
-      /* Different color sets using CSS variables */
-      .flower--pink .petal {
-        background: linear-gradient(
-          180deg,
-          rgba(255, 0, 128, 0.95),
-          rgba(255, 120, 200, 0.35)
-        );
-        box-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
-      }
-      .flower--cyan .petal {
-        background: linear-gradient(
-          180deg,
-          rgba(0, 230, 255, 0.95),
-          rgba(120, 255, 250, 0.35)
-        );
-        box-shadow: 0 0 30px rgba(0, 230, 255, 0.5);
-      }
-      .flower--lime .petal {
-        background: linear-gradient(
-          180deg,
-          rgba(155, 255, 0, 0.95),
-          rgba(200, 255, 120, 0.35)
-        );
-        box-shadow: 0 0 30px rgba(155, 255, 0, 0.45);
-      }
+    /* Different color sets using CSS variables */
+    .flower--pink .petal{background: linear-gradient(180deg, rgba(255,0,128,0.95), rgba(255,120,200,0.35)); box-shadow:0 0 30px rgba(255,0,128,0.5)}
+    .flower--cyan .petal{background: linear-gradient(180deg, rgba(0,230,255,0.95), rgba(120,255,250,0.35)); box-shadow:0 0 30px rgba(0,230,255,0.5)}
+    .flower--lime .petal{background: linear-gradient(180deg, rgba(155,255,0,0.95), rgba(200,255,120,0.35)); box-shadow:0 0 30px rgba(155,255,0,0.45)}
 
-      /* Position petals by rotation */
-      .flower .petal:nth-child(1) {
-        transform: translate(-50%, -80%) rotate(0deg) scale(0.9);
-      }
-      .flower .petal:nth-child(2) {
-        transform: translate(-50%, -50%) rotate(72deg) scale(0.9);
-      }
-      .flower .petal:nth-child(3) {
-        transform: translate(-50%, -50%) rotate(144deg) scale(0.9);
-      }
-      .flower .petal:nth-child(4) {
-        transform: translate(-50%, -50%) rotate(216deg) scale(0.9);
-      }
-      .flower .petal:nth-child(5) {
-        transform: translate(-50%, -50%) rotate(288deg) scale(0.9);
-      }
+    /* Position petals by rotation */
+    .flower .petal:nth-child(1){transform: translate(-50%,-80%) rotate(0deg) scale(0.9)}
+    .flower .petal:nth-child(2){transform: translate(-50%,-50%) rotate(72deg) scale(0.9)}
+    .flower .petal:nth-child(3){transform: translate(-50%,-50%) rotate(144deg) scale(0.9)}
+    .flower .petal:nth-child(4){transform: translate(-50%,-50%) rotate(216deg) scale(0.9)}
+    .flower .petal:nth-child(5){transform: translate(-50%,-50%) rotate(288deg) scale(0.9)}
 
-      /* Bloom animation */
-      @keyframes bloom {
-        0% {
-          transform: scale(0.1) rotate(0deg);
-          opacity: 0;
-        }
-        60% {
-          transform: scale(1.05) rotate(4deg);
-          opacity: 1;
-        }
-        100% {
-          transform: scale(1) rotate(0deg);
-        }
-      }
+    /* Bloom animation */
+    @keyframes bloom {
+      0%{transform: scale(0.1) rotate(0deg);opacity:0}
+      60%{transform: scale(1.05) rotate(4deg);opacity:1}
+      100%{transform: scale(1) rotate(0deg);}
+    }
 
-      /* Gentle float */
-      @keyframes floaty {
-        0% {
-          transform: translateY(0) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-18px) rotate(3deg);
-        }
-        100% {
-          transform: translateY(0) rotate(0deg);
-        }
-      }
+    /* Gentle float */
+    @keyframes floaty {
+      0%{transform: translateY(0) rotate(0deg)}
+      50%{transform: translateY(-18px) rotate(3deg)}
+      100%{transform: translateY(0) rotate(0deg)}
+    }
 
-      /* Twinkle center */
-      @keyframes twinkle {
-        0% {
-          transform: scale(0.9);
-        }
-        50% {
-          transform: scale(1.12);
-        }
-        100% {
-          transform: scale(0.9);
-        }
-      }
+    /* Twinkle center */
+    @keyframes twinkle {0%{transform:scale(0.9)}50%{transform:scale(1.12)}100%{transform:scale(0.9)}}
 
-      .flower {
-        animation: bloom 900ms cubic-bezier(0.2, 0.9, 0.3, 1) both,
-          floaty 6s ease-in-out infinite;
-      }
-      .flower .center {
-        animation: twinkle 2.2s ease-in-out infinite;
-      }
+    .flower{animation: bloom 900ms cubic-bezier(.2,.9,.3,1) both, floaty 6s ease-in-out infinite;}
+    .flower .center{animation: twinkle 2.2s ease-in-out infinite}
 
-      /* Different sizes and speeds */
-      .flower.s--1 {
-        width: 120px;
-        height: 120px;
-        animation-duration: 6s;
-      }
-      .flower.s--2 {
-        width: 160px;
-        height: 160px;
-        animation-duration: 7s;
-      }
-      .flower.s--3 {
-        width: 200px;
-        height: 200px;
-        animation-duration: 8.5s;
-      }
+    /* Different sizes and speeds */
+    .flower.s--1{width:120px;height:120px;animation-duration:6s}
+    .flower.s--2{width:160px;height:160px;animation-duration:7s}
+    .flower.s--3{width:200px;height:200px;animation-duration:8.5s}
 
-      /* Random placements (will be set inline) */
+    /* Random placements (will be set inline) */
 
-      /* Subtle particle glow behind */
-      .glow-blob {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0.18;
-        mix-blend-mode: screen;
-      }
+    /* Subtle particle glow behind */
+    .glow-blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:0.18;mix-blend-mode:screen}
 
-      /* Responsive tweaks */
-      @media (max-width: 720px) {
-        .card {
-          padding: 22px;
-          border-radius: 14px;
-        }
-        h1 {
-          font-size: 26px;
-          line-height: 1.2;
-        }
-        h1 {
-          font-size: 28px;
-        }
-      }
+    /* Responsive tweaks */
+    @media (max-width:720px){
+      .card{padding:22px;border-radius:14px}
+      h1{font-size:26px;line-height:1.2}
+      .flower.s--1{width:90px;height:90px}
+      .flower.s--2{width:120px;height:120px}
+      .flower.s--3{width:150px;height:150px}
+    }
+      h1{font-size:28px}
+    
 
-      /* Footer small note */
-      .note {
-        position: absolute;
-        right: 16px;
-        bottom: 12px;
-        font-size: 12px;
-        opacity: 0.6;
-      }
+    /* Footer small note */
+    .note{position:absolute;right:16px;bottom:12px;font-size:12px;opacity:0.6}
 
-      /* Click sparkle */
-      .sparkle {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        pointer-events: none;
-        mix-blend-mode: screen;
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.6);
-      }
-      @keyframes sparklePop {
-        0% {
-          opacity: 1;
-          transform: translate(-50%, -50%) scale(0.4);
-        }
-        100% {
-          opacity: 0;
-          transform: translate(-50%, -50%) scale(2.4);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="stage">
-      <div class="card">
-        <h1 class="neon">Sürpriz Neon Çiçek Gösterisi</h1>
-        <p class="lead">
-          Bu küçük neon çiçek gösterisi aşkımı gülümsetmek için.
-          <span style="color: var(--neon-1)">SENİ SEVİYORUM </span>
-        </p>
+    /* Click sparkle */
+    .sparkle{position:absolute;width:8px;height:8px;border-radius:50%;pointer-events:none;mix-blend-mode:screen;opacity:0;transform:translate(-50%,-50%) scale(0.6);}
+    @keyframes sparklePop{0%{opacity:1;transform:translate(-50%,-50%) scale(0.4)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.4)}}
 
-        <div class="garden" id="garden">
-          <!-- flowers inserted by JS -->
-        </div>
-
-        <div class="note">
-          Hazırlayan: Senin
-          <span style="color: var(--neon-1)">tatlı mustişin</span>
-        </div>
-      </div>
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="card">
+      <div class="garden" id="garden"></div>
+      <div id="loveMessage" style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:42px; font-weight:700; color:#ff0080; text-shadow:0 0 18px rgba(255,0,128,0.8); opacity:0; transition:opacity 1s;">Seni Seviyorum ❤️</div>
     </div>
 
-    <script>
-      const garden = document.getElementById("garden");
-      const colors = ["pink", "cyan", "lime"];
-      // predefine flower data (position %, size class, color)
-      const flowers = [
-        { x: 14, y: 18, size: "s--3", c: "pink", delay: 0 },
-        { x: 32, y: 70, size: "s--2", c: "cyan", delay: 200 },
-        { x: 60, y: 24, size: "s--1", c: "lime", delay: 400 },
-        { x: 80, y: 62, size: "s--2", c: "pink", delay: 600 },
-        { x: 50, y: 55, size: "s--3", c: "cyan", delay: 900 },
-        { x: 24, y: 44, size: "s--1", c: "lime", delay: 1200 },
-      ];
+      <div class="note">Hazırlayan: Senin <span style="color:var(--neon-1)">tatlı</span> sürprizin</div>
+    </div>
+  </div>
 
-      flowers.forEach((f, i) => {
-        const el = document.createElement("div");
-        el.className = `flower flower--${f.c} ${f.size}`;
-        el.style.left = f.x + "%";
-        el.style.top = f.y + "%";
-        el.style.animationDelay = (f.delay || 0) + "ms";
-        // create petals
-        for (let p = 0; p < 5; p++) {
-          const pet = document.createElement("div");
-          pet.className = "petal";
-          el.appendChild(pet);
-        }
-        const center = document.createElement("div");
-        center.className = "center";
-        el.appendChild(center);
+  <script>
+    const garden = document.getElementById('garden');
+    const colors = ['pink','cyan','lime'];
+    // predefine flower data (position %, size class, color)
+    const flowers = [
+      {x:14,y:18,size:'s--3',c:'pink',delay:0},
+      {x:32,y:70,size:'s--2',c:'cyan',delay:200},
+      {x:60,y:24,size:'s--1',c:'lime',delay:400},
+      {x:80,y:62,size:'s--2',c:'pink',delay:600},
+      {x:50,y:55,size:'s--3',c:'cyan',delay:900},
+      {x:24,y:44,size:'s--1',c:'lime',delay:1200}
+    ];
 
-        garden.appendChild(el);
-
-        // place a soft glow blob behind
-        const blob = document.createElement("div");
-        blob.className = "glow-blob";
-        blob.style.width =
-          parseInt(f.size.replace("s--", "")) * 10 + 120 + "px";
-        blob.style.height = blob.style.width;
-        blob.style.left = `calc(${f.x}% + ${Math.random() * 40 - 20}px)`;
-        blob.style.top = `calc(${f.y}% + ${Math.random() * 40 - 20}px)`;
-        blob.style.background =
-          f.c === "pink"
-            ? "radial-gradient(circle, rgba(255,0,128,0.9), transparent 30%)"
-            : f.c === "cyan"
-            ? "radial-gradient(circle, rgba(0,230,255,0.9), transparent 30%)"
-            : "radial-gradient(circle, rgba(155,255,0,0.9), transparent 30%)";
-        garden.appendChild(blob);
-      });
-
-      // toggle animation
-      const toggleBtn = document.getElementById("toggleBtn");
-      let running = true;
-      toggleBtn.addEventListener("click", () => {
-        running = !running;
-        document
-          .querySelectorAll(".flower")
-          .forEach(
-            f => (f.style.animationPlayState = running ? "running" : "paused")
-          );
-        document
-          .querySelectorAll(".flower .center")
-          .forEach(
-            c => (c.style.animationPlayState = running ? "running" : "paused")
-          );
-        toggleBtn.textContent = running
-          ? "Animasyonu Durdur"
-          : "Animasyonu Devam Ettir";
-      });
-
-      // click sparkle effect
-      document.body.addEventListener("click", e => {
-        const s = document.createElement("div");
-        s.className = "sparkle";
-        s.style.left = e.clientX + "px";
-        s.style.top = e.clientY + "px";
-        s.style.background = `radial-gradient(circle, rgba(255,255,255,0.95), rgba(255,255,255,0.2))`;
-        document.body.appendChild(s);
-        requestAnimationFrame(() => {
-          s.style.opacity = 1;
-          s.style.transform = "translate(-50%,-50%) scale(1)";
-          s.style.animation = "sparklePop 600ms ease-out forwards";
-        });
-        setTimeout(() => s.remove(), 700);
-      });
-
-      // Small accessibility: reduce motion respects
-      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-      if (mq.matches) {
-        document
-          .querySelectorAll(".flower")
-          .forEach(f => (f.style.animationDuration = "0s"));
+    flowers.forEach((f,i)=>{
+      const el = document.createElement('div');
+      el.className = `flower flower--${f.c} ${f.size}`;
+      el.style.left = f.x + '%';
+      el.style.top = f.y + '%';
+      el.style.animationDelay = (f.delay||0)+'ms';
+      // create petals
+      for(let p=0;p<5;p++){
+        const pet = document.createElement('div');
+        pet.className = 'petal';
+        el.appendChild(pet);
       }
-    </script>
-  </body>
+      const center = document.createElement('div');
+      center.className = 'center';
+      el.appendChild(center);
+
+      garden.appendChild(el);
+
+      // place a soft glow blob behind
+      const blob = document.createElement('div');
+      blob.className = 'glow-blob';
+      blob.style.width = (parseInt(f.size.replace('s--',''))*10 + 120) + 'px';
+      blob.style.height = blob.style.width;
+      blob.style.left = `calc(${f.x}% + ${Math.random()*40-20}px)`;
+      blob.style.top = `calc(${f.y}% + ${Math.random()*40-20}px)`;
+      blob.style.background = f.c === 'pink' ? 'radial-gradient(circle, rgba(255,0,128,0.9), transparent 30%)' : (f.c==='cyan' ? 'radial-gradient(circle, rgba(0,230,255,0.9), transparent 30%)' : 'radial-gradient(circle, rgba(155,255,0,0.9), transparent 30%)');
+      garden.appendChild(blob);
+    });
+
+    // flower explosion
+    document.querySelectorAll('.flower').forEach(f=>{
+      f.onclick = ()=>{
+        for(let i=0;i<14;i++){
+          const p=document.createElement('div');
+          p.className='sparkle';
+          p.style.left=f.getBoundingClientRect().left+f.offsetWidth/2+'px';
+          p.style.top=f.getBoundingClientRect().top+f.offsetHeight/2+'px';
+          p.style.background='radial-gradient(circle, rgba(255,255,255,1), rgba(255,0,128,0.5))';
+          document.body.appendChild(p);
+          requestAnimationFrame(()=>{
+            p.style.opacity=1;
+            p.style.animation='sparklePop 800ms ease-out forwards';
+          });
+          setTimeout(()=>p.remove(),900);
+        }
+        f.style.opacity=0;
+        setTimeout(()=> f.remove(),300);
+        // show love message when all flowers are gone
+        const remaining=document.querySelectorAll('.flower');
+        if(remaining.length===1){
+          document.getElementById('loveMessage').style.opacity=1;
+        }
+      };
+    });
+
+    // click sparkle effect
+    document.body.addEventListener('click', (e)=>{
+      const s = document.createElement('div');
+      s.className='sparkle';
+      s.style.left = e.clientX + 'px';
+      s.style.top = e.clientY + 'px';
+      s.style.background = `radial-gradient(circle, rgba(255,255,255,0.95), rgba(255,255,255,0.2))`;
+      document.body.appendChild(s);
+      requestAnimationFrame(()=>{
+        s.style.opacity = 1;
+        s.style.transform = 'translate(-50%,-50%) scale(1)';
+        s.style.animation = 'sparklePop 600ms ease-out forwards';
+      });
+      setTimeout(()=> s.remove(),700);
+    });
+
+    // Small accessibility: reduce motion respects
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if(mq.matches){
+      document.querySelectorAll('.flower').forEach(f=> f.style.animationDuration='0s');
+    }
+  </script>
+</body>
 </html>
